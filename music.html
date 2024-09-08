@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gulfxm</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./images/favico.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Header Code -->
+    <header>
+        <h1>Gulfxm</h1>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="music.html">Youtube Music</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+<!-- Search Bar -->
+<div class="search-container">
+    <input type="text" class="search-bar" placeholder="Search..." id="searchInput">
+    <!-- <div class="search-animation" id="searchAnimation">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div> -->
+</div>
+
+<div class="results-container" id="resultsContainer"></div>
+
+<!-- Container -->
+    <div class="container">
+        <section class="left-section">
+            <h2>Latest Posts</h2>
+            <div class="post">
+
+                <h3>Karan Aujla Type Beat "Jee nahi lagda " new Punjabi Song 2024</h3>
+                <iframe width="850" height="350" src="https://www.youtube.com/embed/lekZfhYZKWU" title="Karan Aujla Type Beat &quot;Jee nahi lagda &quot; new Punjabi Song 2024 @SINGGALatestPunjabiSongs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          <div class="post">
+                <h3>Karan Aujla Type Beat "Jee nahi lagda " new Punjabi Song 2024</h3>
+                <iframe width="850" height="350" src="https://www.youtube.com/embed/ljiP6b1jCyk" title="WHO THEY  Music Video Karan Aujla   Yeah Proof   Latest Punjabi Songs 2024 720p" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        <div class="post"></div>
+           <h3 >Karan Aujla Type Beat "Jee nahi lagda " new Punjabi Song 2024</h3>
+           <iframe width="850" height="350" src="https://www.youtube.com/embed/vsWxs1tuwDk" title="Winning Speech (Music Video) Karan Aujla | Mxrci | Latest Punjabi Songs 2024" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+           <div class="post"></div>
+           <h3>Karan Aujla Type Beat "Jee nahi lagda " new Punjabi Song 2024</h3>
+           <iframe width="850" height="350" src="https://www.youtube.com/embed/vsWxs1tuwDk" title="Winning Speech (Music Video) Karan Aujla | Mxrci | Latest Punjabi Songs 2024" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+      
+           <button id="load-more" onclick="loadMorePosts()">Load More Posts</button>
+        </section>
+
+        
+        <aside class="right-section">
+            <div class="ads">
+                <h2>Subscribe Us</h2>
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/c-oggRd8gJY?si=anPKBYZWhI5zwdEV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="social-media">
+                <!-- <h2>Follow Us</h2> -->
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <!-- Add more social media icons as needed -->
+                </div>
+            </div>
+           
+        </aside>
+    </div>
+
+
+      <!-- Footer Starts Here -->
+
+      <footer>
+        <div class="footer-content">
+            <ul class="social-media">
+                <li><a href="#facebook">Facebook</a></li>
+                <li><a href="#twitter">Twitter</a></li>
+                <li><a href="#instagram">Instagram</a></li>
+                <li><a href="#linkedin">LinkedIn</a></li>
+            </ul>
+            <p>&copy; 2024 Theri Music. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sample data to search from
+        const posts = [
+            { title: 'Post Title 1', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+            { title: 'Post Title 2', content: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+            { title: 'Post Title 3', content: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco.' },
+            // Add more posts as needed
+        ];
+
+        // Function to perform search
+        function searchPosts(query) {
+            return posts.filter(post => post.title.toLowerCase().includes(query.toLowerCase()) ||
+                                        post.content.toLowerCase().includes(query.toLowerCase()));
+        }
+
+        // Handle input event on search bar
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const query = this.value;
+            const results = searchPosts(query);
+            displayResults(results);
+        });
+
+        // Function to display search results
+        function displayResults(results) {
+            const resultsContainer = document.getElementById('resultsContainer');
+            resultsContainer.innerHTML = ''; // Clear previous results
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<p>No results found</p>';
+                return;
+            }
+            results.forEach(result => {
+                const resultDiv = document.createElement('div');
+                resultDiv.className = 'result';
+                resultDiv.innerHTML = `<h3>${result.title}</h3><p>${result.content}</p>`;
+                resultsContainer.appendChild(resultDiv);
+            });
+        }
+
+        const posts = [
+            { title: 'Post Title 1', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+            { title: 'Post Title 2', content: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+            { title: 'Post Title 3', content: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.' },
+            { title: 'Post Title 4', content: 'Duis aute irure dolor in reprehenderit in voluptate velit esse.' },
+            { title: 'Post Title 5', content: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa.' },
+            { title: 'Post Title 6', content: 'Mollit anim id est laborum.' },
+            // Add more posts as needed
+        ];
+
+        let currentIndex = 0;
+        const postsPerPage = 3;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadMorePosts();
+        });
+
+        function loadMorePosts() {
+            const postList = document.getElementById('post-list');
+            const endIndex = Math.min(currentIndex + postsPerPage, posts.length);
+            for (let i = currentIndex; i < endIndex; i++) {
+                const post = document.createElement('div');
+                post.className = 'post';
+                post.innerHTML = `<h3>${posts[i].title}</h3><p>${posts[i].content}</p>`;
+                postList.appendChild(post);
+            }
+            currentIndex = endIndex;
+            if (currentIndex >= posts.length) {
+                document.getElementById('load-more').style.display = 'none';
+            }
+        }
+
+        function searchPosts() {
+            const query = document.querySelector('.search-bar').value.toLowerCase();
+            const postList = document.getElementById('post-list');
+            postList.innerHTML = '';
+            posts.forEach(post => {
+                if (post.title.toLowerCase().includes(query) || post.content.toLowerCase().includes(query)) {
+                    const postElement = document.createElement('div');
+                    postElement.className = 'post';
+                    postElement.innerHTML = `<h3>${post.title}</h3><p>${post.content}</p>`;
+                    postList.appendChild(postElement);
+                }
+            });
+        }
+    </script>
+   
+    </body>
+    </html>
